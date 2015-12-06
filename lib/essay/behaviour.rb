@@ -2,6 +2,8 @@ module Essay
   class Behaviour < Confo::Config
     attr_reader :model_class
 
+    option_accessor :name
+
     def initialize(model_class)
       @model_class = model_class
       super()
@@ -9,6 +11,17 @@ module Essay
   end
 
   class ModelBehaviour < Behaviour
+    def initialize(*)
+      super
+      extend_model
+    end
+
+    def extend_model
+      extensions = "#{self.class.name}::#{name.to_s.camelize}::Extensions".safe_constantize
+      if extensions.kind_of?(Module)
+        model_class.include(extensions)
+      end
+    end
   end
 
   class AttributeBehaviour < Behaviour
