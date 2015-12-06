@@ -3,8 +3,8 @@ module Essay
     extend ActiveSupport::Concern
 
     module ClassMethods
-      def behaviours(thing = nil)
-        @behaviours ||= ModelBehaviours.new
+      def behaviours(thing = nil, &block)
+        @behaviours ||= ModelBehaviours.new(self)
 
         if thing
           if column_names.include?(thing.to_s)
@@ -15,6 +15,7 @@ module Essay
           end
 
         else
+          @behaviours.instance_eval(&block) if block
           @behaviours
         end
       end
