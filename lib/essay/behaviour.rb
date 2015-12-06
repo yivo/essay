@@ -7,21 +7,11 @@ module Essay
     def initialize(model_class)
       @model_class = model_class
       super()
+      model_class.described_behaviour(self)
     end
   end
 
   class ModelBehaviour < Behaviour
-    def initialize(*)
-      super
-      extend_model
-    end
-
-    def extend_model
-      extensions = "#{self.class.name}::#{name.to_s.camelize}::Extensions".safe_constantize
-      if extensions.kind_of?(Module)
-        model_class.include(extensions)
-      end
-    end
   end
 
   class AttributeBehaviour < Behaviour
