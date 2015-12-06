@@ -8,8 +8,8 @@ module Essay
     end
 
     protected
-      def config_class
-        AssociationBehaviour
+      def config_class(behaviour_name)
+        guess_behaviour_class(behaviour_name) or AssociationBehaviour
       end
 
       def construct_config(config_class)

@@ -23,5 +23,9 @@ module Essay
       def config_class
         raise BehaviourNotSpecified, 'There was no Behaviour class specified'
       end
+
+      def guess_behaviour_class(behaviour_name)
+        "Essay::#{behaviour_name.to_s.camelize}Behaviour".safe_constantize
+      end
   end
 end

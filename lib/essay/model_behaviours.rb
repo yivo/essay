@@ -16,8 +16,8 @@ module Essay
     end
 
     protected
-      def config_class
-        ModelBehaviour
+      def config_class(behaviour_name)
+        guess_behaviour_class(behaviour_name) or ModelBehaviour
       end
 
       def construct_config(config_class)
