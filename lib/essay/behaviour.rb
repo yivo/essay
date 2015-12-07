@@ -1,12 +1,11 @@
 module Essay
   class Behaviour < Confo::Config
-    attr_reader :model_class
+    include DescribesModel
 
     option_accessor :name
 
-    def initialize(model_class)
-      @model_class = model_class
-      super()
+    def initialize(*)
+      super
       model_class.described_behaviour(self)
     end
   end
@@ -15,16 +14,10 @@ module Essay
   end
 
   class AttributeBehaviour < Behaviour
-    def initialize(model_class, attribute_name)
-      @attribute_name = attribute_name
-      super(model_class)
-    end
+    include DescribesAttribute
   end
 
   class AssociationBehaviour < Behaviour
-    def initialize(model_class, association_name)
-      @association_name = association_name
-      super(model_class)
-    end
+    include DescribesAssociation
   end
 end

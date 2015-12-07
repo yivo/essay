@@ -4,7 +4,11 @@ module Essay
 
     module ClassMethods
       def behaviours(thing = nil, &block)
-        @behaviours ||= ModelBehaviours.new(self)
+        if @behaviours and not has_own_behaviours?
+          @behaviours = @behaviours.with_new_settings(model_class: self)
+        end
+
+        @behaviours ||= ModelBehaviours.new(model_class: self)
 
         if thing
           if column_names.include?(thing.to_s)
@@ -18,6 +22,10 @@ module Essay
           @behaviours.instance_eval(&block) if block
           @behaviours
         end
+      end
+
+      def has_own_behaviours?
+        @behaviours and self == @behaviours.model_class
       end
 
       def describe(thing = nil, &block)

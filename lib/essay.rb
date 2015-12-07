@@ -1,19 +1,20 @@
 require 'active_support/all'
 require 'confo-config'
 
+require 'essay/concerns/extension'
+require 'essay/concerns/marking'
+require 'essay/concerns/callbacks'
+require 'essay/concerns/describes'
+
 require 'essay/behaviour'
 
-require 'essay/behaviour_set'
-require 'essay/model_behaviours'
-require 'essay/attribute_behaviours'
-require 'essay/association_behaviours'
+require 'essay/behaviour_set/behaviour_set'
+require 'essay/behaviour_set/model_behaviours'
+require 'essay/behaviour_set/attribute_behaviours'
+require 'essay/behaviour_set/association_behaviours'
 
-require 'essay/component_collection'
-require 'essay/collections'
-
-require 'essay/extension'
-require 'essay/marking'
-require 'essay/callbacks'
+require 'essay/model_components/component_collection'
+require 'essay/model_components/collections'
 
 ActiveRecord::Base.include(Essay::Marking)
 ActiveRecord::Base.include(Essay::Callbacks)
