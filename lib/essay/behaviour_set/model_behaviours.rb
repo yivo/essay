@@ -2,8 +2,6 @@ module Essay
   class ModelBehaviours < BehaviourSet
     def initialize(model_class)
       super(model_class)
-      attributes
-      associations
     end
 
     def attributes
@@ -12,6 +10,13 @@ module Essay
 
     def associations
       storage[:associations] ||= AssociationCollection.new(model_class: model_class)
+    end
+
+    def to_hash
+      super.tap do |hash|
+        hash[:attributes]   ||= attributes.to_hash
+        hash[:associations] ||= associations.to_hash
+      end
     end
 
   protected
