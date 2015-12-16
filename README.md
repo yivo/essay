@@ -16,4 +16,14 @@ There are a lot of plugins for ActiveRecord. For example:
 
 Each of this plugins adds and/or removes and/or modifies behaviours of model. For example: adds callbacks, validations, methods, adds some imaginary meaning for attributes (good example: `deleted_at` when using paranoid). Each plugin uses different way of storing its options.
 
-So, what if we need to know what plugins model is using and plugin options? ActiveRecord does not provide standardized way of developing and storing plugin options. **This library provides a series of classes and utilities for creating essay writers (classes which provide information about specific ActiveRecord plugin) with unified API.**  
+So, what if we need to know what plugins model is using and plugin options? ActiveRecord does not provide standardized way of developing and storing plugin options. **This library provides a series of classes and utilities for creating essay writers (classes which provide information about specific ActiveRecord plugin) with unified API design.**  
+
+### Example for Globalize
+```ruby
+# TODO
+```
+
+## Gemfile
+```ruby
+gem 'essay', github: 'yivo/essay'
+```
