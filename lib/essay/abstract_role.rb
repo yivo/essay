@@ -16,5 +16,9 @@ module Essay
       @env         = env
       @model_class = env.fetch(:model_class)
     end
+
+    def to_hash
+      {}
+    end
   end
 end

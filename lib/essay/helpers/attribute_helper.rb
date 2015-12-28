@@ -7,5 +7,8 @@ module Essay
     def attribute_traits
       model_traits.attributes[attribute_name]
     end
+
+    alias attribute attribute_traits
+    alias this_attribute attribute
   end
 end

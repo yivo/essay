@@ -3,7 +3,7 @@ require 'essay/helpers/association_helper'
 
 module Essay
   class AssociationRoles::Base < AbstractRole
-    include ModelHelper
+    include AssociationHelper
 
     def initialize(env)
       super

@@ -7,5 +7,8 @@ module Essay
     def association_traits
       model_traits.associations[association_name]
     end
+
+    alias association association_traits
+    alias this_association association
   end
 end

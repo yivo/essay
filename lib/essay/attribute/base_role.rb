@@ -3,7 +3,7 @@ require 'essay/helpers/attribute_helper'
 
 module Essay
   class AttributeRoles::Base < AbstractRole
-    include ModelHelper
+    include AttributeHelper
 
     def initialize(env)
       super
