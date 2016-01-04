@@ -1,18 +1,14 @@
 require 'essay/helpers/model_helper'
+require 'essay/helpers/feature_helper'
 require 'essay/helpers/serialize_helper'
 
 module Essay
-  class AbstractRole
+  class AbstractFeatures
     include ModelHelper
+    include FeatureHelper
     include SerializeHelper
 
-    class_attribute :description, instance_predicate: false, instance_accessor: false
-
-    class << self
-      def describe(description)
-        self.description = description
-      end
-    end
+    attr_reader :env
 
     def initialize(env)
       @env         = env

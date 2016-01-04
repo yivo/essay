@@ -1,8 +1,8 @@
-require 'essay/abstract_role'
+require 'essay/abstract_features'
 require 'essay/helpers/attribute_helper'
 
 module Essay
-  class AttributeRoles::Base < AbstractRole
+  class AttributeFeatures < AbstractFeatures
     include AttributeHelper
 
     def initialize(env)

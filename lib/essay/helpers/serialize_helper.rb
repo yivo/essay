@@ -2,14 +2,13 @@ module Essay
   module SerializeHelper
     extend ActiveSupport::Concern
 
-    included do
-      class_attribute :serialize_steps, instance_writer: false
-      self.serialize_steps = []
-    end
-
     module ClassMethods
       def serialize(options = {}, &block)
         serialize_steps << { block: block, options: options }
+      end
+
+      def serialize_steps
+        @serialize_steps ||= []
       end
     end
 
@@ -20,6 +19,10 @@ module Essay
           result.merge!(instance_exec(&step.fetch(:block)))
         end
       end
+    end
+
+    def serialize_steps
+      self.class.serialize_steps
     end
   end
 end

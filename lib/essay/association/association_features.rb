@@ -1,8 +1,8 @@
-require 'essay/abstract_roles'
+require 'essay/abstract_features'
 require 'essay/helpers/association_helper'
 
 module Essay
-  class AssociationRoles < AbstractRoles
+  class AssociationFeatures < AbstractFeatures
     include AssociationHelper
 
     def initialize(env)
