@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'essay/abstract_features'
 require 'essay/helpers/attribute_helper'
 

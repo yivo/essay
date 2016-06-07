@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # encoding: utf-8
 require File.expand_path('../lib/essay/version', __FILE__)
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Essay
   module DescriptionHelper
     extend ActiveSupport::Concern

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Essay
   module AssociationHelper
     def association_name

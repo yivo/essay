@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Essay
   module AttributeHelper
     def attribute_name

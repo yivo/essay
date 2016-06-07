@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'active_support/all'
 require 'active_record'
 
@@ -26,6 +27,10 @@ class ActiveRecord::Base
     def association_features(assoc_name = nil)
       @features_for_assocs ||= Essay::AssociationCollection.new(model_class: self)
       assoc_name ? @features_for_assocs[assoc_name] : @features_for_assocs
+    end
+
+    def essay_for(attr_or_assoc)
+
     end
   end
 end

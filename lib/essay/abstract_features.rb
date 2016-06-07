@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'essay/helpers/model_helper'
 require 'essay/helpers/feature_helper'
 require 'essay/helpers/serialize_helper'

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'essay/helpers/model_helper'
 
 module Essay
