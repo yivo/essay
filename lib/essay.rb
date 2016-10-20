@@ -30,7 +30,7 @@ class ActiveRecord::Base
     end
 
     def essay_for(attr_or_assoc)
-
+      raise NotImplmentedError
     end
   end
 end
