@@ -1,6 +1,9 @@
+# encoding: utf-8
 # frozen_string_literal: true
+
 require 'active_support/all'
 require 'active_record'
+require 'activerecord-traits'
 
 require 'essay/model/model_features'
 require 'essay/model/base_feature'
