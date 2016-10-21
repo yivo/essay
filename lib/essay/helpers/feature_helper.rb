@@ -4,15 +4,15 @@
 module Essay
   module FeatureHelper
     def is(thing)
-      send(thing)
+      try(thing)
     end
 
     def not(thing)
-      send(thing)
+      try(thing)
     end
 
     def with(thing, &block)
-      obj = send(thing)
+      obj = try(thing)
       block.call(obj) if obj
     end
   end
