@@ -2,15 +2,15 @@
 # frozen_string_literal: true
 
 require 'essay/abstract_features'
-require 'essay/helpers/association_helper'
 
 module Essay
   class AssociationFeatures < AbstractFeatures
-    include AssociationHelper
+    attr_reader :association
+    alias this_association association
 
     def initialize(env)
       super
-      @association_name = env.fetch(:association_name)
+      @association = env.fetch(:association)
     end
   end
 end

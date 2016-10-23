@@ -2,15 +2,15 @@
 # frozen_string_literal: true
 
 require 'essay/abstract_features'
-require 'essay/helpers/attribute_helper'
 
 module Essay
   class AttributeFeatures < AbstractFeatures
-    include AttributeHelper
+    attr_reader :attribute
+    alias this_attribute attribute
 
     def initialize(env)
       super
-      @attribute_name = env.fetch(:attribute_name)
+      @attribute = env.fetch(:attribute)
     end
   end
 end

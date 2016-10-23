@@ -3,28 +3,28 @@
 
 module Essay
   module ModelHelper
-    def model_class
-      @model_class
+    def active_record
+      @active_record
     end
 
-    def model_traits
-      model_class.traits
+    def traits
+      active_record.traits
     end
 
-    def model_associations
-      model_traits.associations
+    def active_record_traits
+      traits
     end
 
-    alias all_associations model_associations
-
-    def model_attributes
-      model_traits.attributes
+    def active_record_attributes
+      traits.attributes
     end
 
-    alias all_attributes model_attributes
+    def active_record_associations
+      traits.associations
+    end
 
-    def model_features
-      model_class.features
+    def active_record_features
+      traits.features
     end
   end
 end

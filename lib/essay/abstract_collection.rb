@@ -7,18 +7,16 @@ module Essay
   class AbstractCollection
     include ModelHelper
 
+    attr_reader :env
+
     def initialize(env)
-      @env          = env
-      @model_class  = env.fetch(:model_class)
-      @features_for = {}
+      @env           = env
+      @active_record = env.fetch(:active_record)
+      @features_for  = {}
     end
 
     def [](name)
-      @features_for[convert_key(name)] ||= construct_features(name)
-    end
-
-    def load_contents
-
+      @features_for[name.to_sym] ||= construct_features(name)
     end
 
     def to_hash
@@ -29,11 +27,7 @@ module Essay
 
   protected
     def construct_features(name)
-
-    end
-
-    def convert_key(key)
-      key.kind_of?(Symbol) ? key : key.to_sym
+      raise NotImplementedError
     end
   end
 end

@@ -3,17 +3,17 @@
 
 require 'essay/helpers/model_helper'
 require 'essay/helpers/serialize_helper'
-require 'essay/helpers/description_helper'
 
 module Essay
   class AbstractFeature
     include ModelHelper
     include SerializeHelper
-    include DescriptionHelper
+
+    attr_reader :env
 
     def initialize(env)
-      @env         = env
-      @model_class = env.fetch(:model_class)
+      @env           = env
+      @active_record = env.fetch(:active_record)
     end
   end
 end
